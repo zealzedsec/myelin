@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- Myelin. A neuron drawn as signal on vantablack: the soma with its red
+       nucleus, an axon wrapped in three myelin sheaths, and one action
+       potential caught mid-jump between two of them (saltatory conduction).
+       A faint red light falls from above, as on the atlas; the graticule
+       behind it is the atlas's grid. -->
+  <defs>
+    <radialGradient id="ground" cx="50%" cy="-6%" r="100%">
+      <stop offset="0" stop-color="#2b0e0d"/>
+      <stop offset="0.42" stop-color="#0d0707"/>
+      <stop offset="1" stop-color="#030202"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".18"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".1"/>
+    </linearGradient>
+    <linearGradient id="sheath" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e9e4e4"/>
+    </linearGradient>
+    <clipPath id="tile"><rect x="32" y="32" width="960" height="960" rx="216"/></clipPath>
+    <filter id="halo" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="soft"/>
+      <feMerge><feMergeNode in="soft"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="spike" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="wide"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="near"/>
+      <feMerge><feMergeNode in="wide"/><feMergeNode in="near"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect x="32" y="32" width="960" height="960" rx="216" fill="url(#ground)"/>
+  <g clip-path="url(#tile)" stroke="#fff" stroke-opacity=".035" stroke-width="2">
+    <path d="M160 32V992M288 32V992M416 32V992M544 32V992M672 32V992M800 32V992M928 32V992"/>
+    <path d="M32 160H992M32 288H992M32 416H992M32 544H992M32 672H992M32 800H992M32 928H992"/>
+  </g>
+
+  <g transform="rotate(-38 512 512)">
+    <!-- the white light the cell gives off, drawn once underneath everything -->
+    <g filter="url(#halo)" fill="#fff" opacity=".28">
+      <circle cx="206" cy="512" r="86"/>
+      <rect x="318" y="466" width="528" height="92" rx="46"/>
+    </g>
+    <line x1="206" y1="512" x2="884" y2="512" stroke="#f4f0f0" stroke-opacity=".55" stroke-width="9" stroke-linecap="round"/>
+    <g fill="none" stroke="#f4f0f0" stroke-opacity=".55" stroke-width="9" stroke-linecap="round">
+      <path d="M884 512 L936 468"/>
+      <path d="M884 512 L942 540"/>
+    </g>
+    <g fill="#f8f5f5" filter="url(#glow)">
+      <circle cx="936" cy="468" r="15"/>
+      <circle cx="942" cy="540" r="15"/>
+    </g>
+    <g fill="url(#sheath)" filter="url(#glow)">
+      <circle cx="206" cy="512" r="80"/>
+      <rect x="318" y="468" width="150" height="88" rx="44"/>
+      <rect x="506" y="468" width="150" height="88" rx="44"/>
+      <rect x="694" y="468" width="150" height="88" rx="44"/>
+    </g>
+    <circle cx="196" cy="502" r="21" fill="#a3241f"/>
+    <circle cx="675" cy="512" r="17" fill="#ff4a40" filter="url(#spike)"/>
+  </g>
+
+  <rect x="33.5" y="33.5" width="957" height="957" rx="214.5" fill="none" stroke="url(#rim)" stroke-width="3"/>
+</svg>

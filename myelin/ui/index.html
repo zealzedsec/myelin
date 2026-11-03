@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="myelin-token" content="%%MYELIN_TOKEN%%">
+<meta name="color-scheme" content="dark light">
+<title>Myelin</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app.css">
+<script type="module" src="js/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+<div class="shell" id="shell">
+  <header class="top">
+    <a class="mark" href="#atlas" aria-label="Myelin, atlas view">
+      <svg class="axon" viewBox="0 0 64 16" aria-hidden="true">
+        <line x1="1" y1="8" x2="63" y2="8"/>
+        <rect x="6" y="4" width="14" height="8" rx="4"/>
+        <rect x="24" y="4" width="14" height="8" rx="4"/>
+        <rect x="42" y="4" width="14" height="8" rx="4"/>
+        <circle cx="0" cy="8" r="2.4"/>
+      </svg>
+      <span>myelin</span>
+    </a>
+    <form class="ask" id="ask" role="search" autocomplete="off">
+      <label class="sr" for="q">Ask the vault</label>
+      <span id="lens"></span>
+      <input id="q" name="q" type="search" placeholder="Ask the vault, or paste a paragraph you are writing" spellcheck="false">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+    <div class="top-tools">
+      <span class="mode-chip" id="mode-chip" hidden>Snapshot</span>
+      <span class="root" id="root" title=""></span>
+      <button class="btn ghost" id="tour-btn" type="button" title="A guided tour of this brain">Tour</button>
+      <button class="btn ghost" id="sleep" type="button" title="Run a consolidation cycle now"></button>
+      <button class="btn icon" id="theme" type="button" aria-label="Switch between vantablack and paper"></button>
+      <button class="btn icon" id="help" type="button" aria-label="Keyboard shortcuts">?</button>
+    </div>
+  </header>
+
+  <nav class="rail" aria-label="Views">
+    <a href="#atlas" data-view="atlas"><span class="ico" data-icon="atlas"></span><span>Atlas</span><span class="plate-no">01</span></a>
+    <a href="#recall" data-view="recall"><span class="ico" data-icon="recall"></span><span>Recall</span><span class="plate-no">02</span></a>
+    <a href="#inbox" data-view="inbox"><span class="ico" data-icon="inbox"></span><span>Inbox</span><span class="plate-no">03</span><b class="count" id="inbox-count" hidden></b></a>
+    <a href="#evolution" data-view="evolution"><span class="ico" data-icon="evolution"></span><span>Evolution</span><span class="plate-no">04</span></a>
+    <a href="#health" data-view="health"><span class="ico" data-icon="health"></span><span>Health</span><span class="plate-no">05</span></a>
+    <a href="#ledger" data-view="ledger"><span class="ico" data-icon="ledger"></span><span>Ledger</span><span class="plate-no">06</span></a>
+  </nav>
+
+  <main class="view" id="view" tabindex="-1"></main>
+
+  <aside class="inspector" id="inspector" aria-label="Note inspector" hidden></aside>
+
+  <footer class="readouts" id="readouts" aria-label="Brain status"></footer>
+</div>
+<div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command palette" hidden></div>
+<div class="sr" aria-live="polite" id="announce"></div>
+</body>
+</html>
